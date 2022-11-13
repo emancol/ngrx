@@ -6,3 +6,5 @@ export const decrement = createAction('[Counter Buttons] decrement');
 export const reset = createAction('[Counter Buttons] reset');
 
 export const customIncrement = createAction('[Custom Counter Input] CustomIncrement', props<{ count: number }>())
+
+export const changeChannelName = createAction('[Custom Counter Input] changeChannelName')
