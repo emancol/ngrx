@@ -7,14 +7,12 @@ import { decrement, increment, reset } from '../state/counter.actions';
   templateUrl: './counter-buttons.component.html',
   styleUrls: ['./counter-buttons.component.css']
 })
+
 export class CounterButtonsComponent implements OnInit {
-
-
 
   constructor(private store: Store<{ counter: { counter: number } }>) { }
 
   ngOnInit(): void { }
-
 
   onIncrement(): void {
     this.store.dispatch(increment())

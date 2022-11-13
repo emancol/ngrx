@@ -1,7 +1,8 @@
-import { state } from "@angular/animations";
+
 import { createReducer, on } from "@ngrx/store"
 import { decrement, increment, reset } from "./counter.actions";
 import { initialState } from "./counter.state."
+
 
 const _counterReducer = createReducer(
     initialState,

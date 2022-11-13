@@ -7,6 +7,7 @@ import { CounterOutputComponent } from './counter/counter-output/counter-output.
 import { CounterButtonsComponent } from './counter/counter-buttons/counter-buttons.component';
 import { StoreModule } from '@ngrx/store';
 import { counterReducer } from './counter/state/counter.reducer';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,10 @@ import { counterReducer } from './counter/state/counter.reducer';
   ],
   imports: [
     BrowserModule,
-    StoreModule.forRoot({ counter: counterReducer }) // inside the square brackts there is the Reducer
+    StoreModule.forRoot({ counter: counterReducer }), // inside the square brackts there is the Reducer
+    StoreDevtoolsModule.instrument({
+      maxAge: 25, // Retains last 25 states
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
