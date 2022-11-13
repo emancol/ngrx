@@ -14,16 +14,4 @@ export class CounterComponent implements OnInit {
 
   ngOnInit(): void { }
 
-
-  onIncrement(): void {
-    this.counter++;
-  }
-
-  onDecrement(): void {
-    this.counter--;
-  }
-
-  onReset(): void {
-
-  }
 }
