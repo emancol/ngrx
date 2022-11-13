@@ -24,6 +24,6 @@ export class CounterComponent implements OnInit {
   }
 
   onReset(): void {
-    this.counter = 0
+
   }
 }
