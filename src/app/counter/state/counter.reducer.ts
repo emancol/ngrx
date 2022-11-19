@@ -1,9 +1,9 @@
 
 import { state } from "@angular/animations";
-import { createReducer, on } from "@ngrx/store"
-import { Action } from "rxjs/internal/scheduler/Action";
+import { Action, createReducer, on, State } from "@ngrx/store"
+import { StateActionPair } from "@ngrx/store/src/state";
 import { changeChannelName, customIncrement, decrement, increment, reset } from "./counter.actions";
-import { initialState } from "./counter.state."
+import { CounterState, initialState } from "./counter.state."
 
 
 const _counterReducer = createReducer(
@@ -43,6 +43,6 @@ const _counterReducer = createReducer(
 
 );
 
-export function counterReducer(state: any, action: any) {
+export function counterReducer(state: any, action: Action) {
     return _counterReducer(state, action);
 }

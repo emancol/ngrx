@@ -1,6 +1,7 @@
 import { createReducer } from "@ngrx/store"
-import { initialState } from "src/app/counter/state/counter.state."
-import { Post } from "src/app/models/posts.models"
+
+import { initialState } from "./posts.state"
+
 
 const _postsReducer = createReducer(initialState)
 
