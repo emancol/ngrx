@@ -9,7 +9,6 @@ import { HomeComponent } from './home/home.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HeaderComponent } from './shared/components/header/header.component';
 import { environment } from 'src/environments/environment';
-import { appReducer } from './store/app.state';
 
 @NgModule({
   declarations: [
@@ -21,7 +20,7 @@ import { appReducer } from './store/app.state';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    StoreModule.forRoot(appReducer), // inside the square brackts there is the Reducer
+    StoreModule.forRoot({}), // inside the square brackts there is the Reducer
     StoreDevtoolsModule.instrument({
       maxAge: 25, // Retains last 25 states
       logOnly: environment.production
