@@ -5,6 +5,7 @@ import { Post } from 'src/app/models/posts.models';
 import { AppState } from 'src/app/store/app.state';
 import { getPosts } from '../state/posts-selectors';
 import { addPost } from '../state/posts.actions';
+import { Router } from '@angular/router'
 
 @Component({
   selector: 'app-add-post',
@@ -17,7 +18,7 @@ export class AddPostComponent implements OnInit {
     title: new FormControl('', [Validators?.required, Validators.minLength(6)]),
     description: new FormControl('', [Validators.required, Validators.minLength(10)])
   })
-  constructor(private store: Store<AppState>) { }
+  constructor(private store: Store<AppState>, private router: Router) { }
 
   ngOnInit(): void {
     this.store.select(getPosts).subscribe(posts => {
@@ -38,15 +39,13 @@ export class AddPostComponent implements OnInit {
   }
 
   onAddPost(): void {
-
-
     const post: Post = {
       title: this.postForm.value.title,
       description: this.postForm.value.description
     }
     this.store.dispatch(addPost({ post }))
     this.postForm.reset()
-
+    this.router.navigate(['posts'])
   }
 
 }
