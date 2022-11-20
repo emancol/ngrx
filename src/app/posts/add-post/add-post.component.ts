@@ -21,7 +21,6 @@ export class AddPostComponent implements OnInit {
 
   ngOnInit(): void {
     this.store.select(getPosts).subscribe(posts => {
-      console.log(posts)
     })
   }
 
