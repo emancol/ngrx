@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Store } from '@ngrx/store';
+import { Post } from 'src/app/models/posts.models';
+import { AppState } from 'src/app/store/app.state';
+import { getPosts } from '../state/posts-selectors';
+import { addPost } from '../state/posts.actions';
 
 @Component({
   selector: 'app-add-post',
@@ -12,9 +17,12 @@ export class AddPostComponent implements OnInit {
     title: new FormControl('', [Validators?.required, Validators.minLength(6)]),
     description: new FormControl('', [Validators.required, Validators.minLength(10)])
   })
-  constructor() { }
+  constructor(private store: Store<AppState>) { }
 
   ngOnInit(): void {
+    this.store.select(getPosts).subscribe(posts => {
+      console.log(posts)
+    })
   }
 
   showDescriptionErrors(): string | void {
@@ -31,10 +39,15 @@ export class AddPostComponent implements OnInit {
   }
 
   onAddPost(): void {
-    if (!this.postForm.valid) {
-      return
+
+
+    const post: Post = {
+      title: this.postForm.value.title,
+      description: this.postForm.value.description
     }
-    console.log(this.postForm.value)
+    this.store.dispatch(addPost({ post }))
+    this.postForm.reset()
+
   }
 
 }
