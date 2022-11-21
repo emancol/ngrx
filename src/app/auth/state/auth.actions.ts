@@ -6,7 +6,7 @@ export const LOGIN_FAIL = '[auth page] login fail';
 
 export const loginStart = createAction(
     LOGIN_START,
-    props<{ email: string, passoword: string }>()
+    props<{ email: string, password: string }>()
 )
 
 
